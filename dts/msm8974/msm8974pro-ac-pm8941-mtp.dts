@@ -36,6 +36,16 @@
 			<KEY_VOLUMEUP   PM_GPIO(5) PM_GPIO_PULL_UP_1_5>,
 			<KEY_VOLUMEDOWN PM_GPIO(2) PM_GPIO_PULL_UP_1_5>;
 	};
+
+	motorola-victara {
+		model = "Motorola QC-MSM8974 Pro Victara"; 
+		compatible = "qcom,msm8974-victara", "qcom,msm8974", "lk2nd,device";
+		lk2nd,match-cmdline = "* androidboot.device=victara *";
+
+                lk2nd,keys =
+                        <KEY_VOLUMEUP   PM_GPIO(5) PM_GPIO_PULL_UP_1_5>,
+                        <KEY_VOLUMEDOWN PM_GPIO(2) PM_GPIO_PULL_UP_1_5>;
+	};
 };
 
 /*
@@ -46,3 +56,4 @@
  * FIXME: This won't work if more Sony devices are added here...
  */
 #include "sony/msm8974pro-ac-shinano_leo-display.dtsi"
+#include "motorola/msm8974pro-ac-victara-display.dtsi"

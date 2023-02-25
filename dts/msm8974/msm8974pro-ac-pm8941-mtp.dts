@@ -55,3 +55,4 @@
  *
  * FIXME: This won't work if more Sony devices are added here...
  */
+#include "motorola/msm8974pro-ac-victara-display.dtsi"

@@ -11,14 +11,6 @@
  * GNU General Public License for more details.
  */
 
-&mdss_dsi0 {
-        mmi,mipi-d0-sel = <&msmgpio 129 0>;
-        qcom,dsi-pref-prim-pan = <&mot_smd_1080p_cmd_v1>;
-        vbat_disp-supply = <&vbat_disp_vreg>;
-        vdd_disp-supply = <&vdd_disp_vreg>;
-        vci_disp-supply = <&vci_disp_vreg>;
-};
-
 &mdss_mdp {
 	mot_smd_1080p_cmd_v1: qcom,mdss_dsi_mot_smd_1080p_cmd_v1 {
 		compatible = "qcom,mdss-dsi-panel";
@@ -277,4 +269,37 @@
 			qcom,supply-post-off-sleep = <0>;
 		};
 	};
+};
+
+&vbat_disp_vreg {
+        /delete-property/ gpio;
+        regulator-boot-on;
+};
+
+&vdd_disp_vreg {
+        /delete-property/ gpio;
+        regulator-boot-on;
+};
+
+&vci_disp_vreg {
+        gpio = <&pm8941_gpios 14 0x0>;
+        regulator-boot-on;
+};
+
+&mot_smd_1080p_cmd_v1 {
+        qcom,cont-splash-enabled;
+        mmi,quickdraw-enabled;
+};
+
+&mot_smd_1080p_cmd_v0 {
+        qcom,cont-splash-enabled;
+        mmi,quickdraw-enabled;
+};
+
+&mdss_dsi0 {
+        mmi,mipi-d0-sel = <&msmgpio 129 0>;
+        qcom,dsi-pref-prim-pan = <&mot_smd_1080p_cmd_v1>;
+        vbat_disp-supply = <&vbat_disp_vreg>;
+        vdd_disp-supply = <&vdd_disp_vreg>;
+        vci_disp-supply = <&vci_disp_vreg>;
 };
